@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="es_CL">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/kh/favicon.ico">
+
+    <title>King's Hawaiian</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/navbar-static-top-v2.css" rel="stylesheet">
+
+    <!-- Íconos -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Typos -->
+    <link href="../fonts/fonts.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+       #map {
+        height: 600px;
+        width: 100%;
+       }
+    </style>
+
+  </head>
+
+ <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8&appId=120312684974357";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default margBottom0 navbar-static-top" style="background-color: #fb4324;position: fixed; width: 100%;">
+      <div class="container-fluid ">
+        <div class="col-md-4 redes">
+          <ul class="nav navbar-nav navbar-left text-center">
+            <li class="hidden-xs hidden-sm menu-item"><a href="https://www.facebook.com/kingshawaiianchile" class="nav-profile dropdown-toggle" target="_blank"><img src="../img/kh/icon-fb.png"></a>
+            </li>
+            <li class="hidden-xs hidden-sm menu-item"><a href="https://www.instagram.com/kingshawaiiancl/" class="nav-profile dropdown-toggle" target="_blank"><img src="../img/kh/icon-ig.png"></a>
+            </li>
+            <li class="hidden-xs hidden-sm menu-item"><a href="https://www.youtube.com/watch?v=OdxMh1h4a2Q" class="nav-profile dropdown-toggle" target="_blank"><img src="../img/kh/icon-yt.png"></a>
+            </li>
+          </ul>
+        </div>        
+        
+        <div class="navbar-header col-md-4">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="hidden-xs">
+            <a href="#"><img src="../img/2018/logo-top.svg" class="logo-top" /></a>
+          </div>
+          <div class="hidden-sm hidden-md hidden-lg">
+            <a href="#"><img src="../img/2018/logo-top.svg" class="logo-top" /></a>
+          </div>
+        </div>
+      
+        <div class="col-md-4">
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right text-center">
+              <li class="hidden-xs menu-item dropdown"><a href="#" data-toggle="dropdown" class="nav-profile dropdown-toggle"><img src="../img/kh/menu.png"></a>
+                <ul class="dropdown-menu">
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#inicio">Inicio</a></li>
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#nosotros">Nosotros</a></li>
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#historia">Historia</a></li>
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#donde">Dónde comprar</a></li>
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#recetas">Recetas</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>        
+      </div>
+    </nav>    
+
+    <div class="container" style="padding-top: 115px; margin-bottom: 30px;">
+      <div class="row" style="padding-top:1%;">
+        <div class="row">
+          <div class="col-xs-12 col-md-10">
+            <h1 class="c-brown" style="font-family: 'Conv_ITCAvantGardePro-Bold';text-transform: uppercase;">Dónde comprar</h1>
+          </div>
+          <div class="col-xs-12 col-md-2">
+            <img src="../img/kh/logo-jumbo.png">
+          </div>
+        </div>        
+        <div class="row padTop50">
+          <div class="col-xs-12 col-md-8">
+            <div id="map"></div>
+            <script>
+              var map;
+              function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 5,
+                  center: new google.maps.LatLng(-31.455678, -71.652241),
+                  mapTypeId: 'roadmap'
+                });
+
+                var iconBase = 'http://kingshawaiian.cl/img/kh/';
+                var icons = {
+                  info: {
+                    icon: iconBase + 'map-marker.png'
+                  }
+                };
+
+                var features = [
+                  {
+                    position: new google.maps.LatLng(-33.391260, -70.546309),
+                    type: 'info', 
+                  }, {
+                    position: new google.maps.LatLng(-33.417558, -70.607346),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.356952, -70.514483),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.429866, -70.578726),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.428006, -70.540155),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.399623, -70.592343),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.343735, -70.544317),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.401817, -70.514871),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.321318, -70.645947),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.480010, -70.751601),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.509754, -70.607897),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.485858, -70.651596),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.487623, -70.556957),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.611707, -70.576615),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.496503, -70.757941),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.465292, -70.597327),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.571326, -70.584038),
+                    type: 'info',
+                  }, {
+                    position: new google.maps.LatLng(-33.633904, -70.708448),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-20.240334, -70.145012),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-23.667334, -70.404847),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-29.915739, -71.256910),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.035374, -71.523562),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-32.933886, -71.536519),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.043920, -71.604499),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.045426, -71.422577),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-34.184897, -70.724488),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-34.992128, -71.244730),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-35.428992, -71.672191),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-36.846194, -73.052255),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-22.455059, -68.923893),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-23.695141, -70.415836),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-23.579743, -70.390197),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-27.382425, -70.317166),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-29.920474, -71.234422),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-32.827164, -70.602729),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-35.430411, -71.627719),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-36.834821, -73.063083),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-36.824775, -73.045161),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-36.595119, -72.104768),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-37.471636, -72.355801),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-38.743580, -72.637970),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-38.733849, -72.610475),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-40.574221, -73.130114),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-41.323326, -72.949277),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-41.468529, -72.931466),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-39.817932, -73.235601),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.285811, -70.697861),
+                    type: 'info'
+                  }
+                ];
+
+                // Create markers.
+                features.forEach(function(feature) {
+                  var marker = new google.maps.Marker({
+                    position: feature.position,
+                    icon: icons[feature.type].icon,
+                    map: map
+                  });
+                });
+              }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_5HyX-JhF7-RKgr29V6O6ij1tG_P-2DE&callback=initMap">
+            </script>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="row" id="direcciones" style="overflow-y: scroll;max-height: 600px;overflow-x: hidden;">
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Kennedy</h3>
+                  <p>Avda. Kennedy 9001, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av+Presidente+Kennedy+9001,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.3908788,-70.54839,17z/data=!3m1!4b1!4m5!3m4!1s0x9662ceb43b8a2955:0x3166993d94c5ce0!8m2!3d-33.3908833!4d-70.5462013" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Costanera</h3>
+                  <p>Avda. Andrés Bello 2465, Providencia.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Andr%C3%A9s+Bello+2465,+Providencia,+Regi%C3%B3n+Metropolitana/@-33.4177331,-70.6095237,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf682ee716d3:0x3f18e657b557cfa5!8m2!3d-33.4177376!4d-70.607335" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo La Dehesa</h3>
+                  <p>Av. La Dehesa 1445, Lo Barnechea.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+La+Dehesa+1445,+Lo+Barnechea,+Regi%C3%B3n+Metropolitana/@-33.3575751,-70.5174551,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cbdd3748a959:0xc59bb0addbb6cf55!8m2!3d-33.3575796!4d-70.5152664" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Bilbao</h3>
+                  <p>Avda. Francisco Bilbao 4144, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Francisco+Bilbao+4144,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4300318,-70.5809251,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf0140da6125:0x28233379755a83d7!8m2!3d-33.4300363!4d-70.5787364" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo La Reina</h3>
+                  <p>Av. Francisco Bilbao 8750, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Francisco+Bilbao+8750,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4279214,-70.5429983,17z/data=!3m1!4b1!4m5!3m4!1s0x9662ce6283ff7fd3:0x791ca41623712d9b!8m2!3d-33.4279259!4d-70.5408096" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Lo Castillo</h3>
+                  <p>Eduardo Marquina 3412, Vitacura.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Eduardo+Marquina+3412,+Vitacura,+Regi%C3%B3n+Metropolitana/@-33.4001555,-70.5941352,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf36cab3b117:0x223b54597e3b08a2!8m2!3d-33.40016!4d-70.5919465" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Los Trapenses</h3>
+                  <p>Av. Camino Los Trapenses 3515, Lo Barnechea.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Camino+Los+Trapenses+3515,+Lo+Barnechea,+Regi%C3%B3n+Metropolitana/@-33.3433003,-70.5466238,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c975e1587e13:0x2283c4f13d8649db!8m2!3d-33.3433048!4d-70.5444351" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo El Alba</h3>
+                  <p>Avda. Camino el Alba 11.969, local 101, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Jumbo/@-33.4019914,-70.5170378,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cc17f71c76cd:0xe3efb8330e75e6d6!8m2!3d-33.4019959!4d-70.5148491" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Colina Chamisero</h3>
+                  <p>Av. Santa María 14.601, Colina.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Jumbo+Chamisero/@-33.3214751,-70.6481254,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c78caeedfb11:0x36ef2f0fb49b4074!8m2!3d-33.3214796!4d-70.6459367" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Maipú</h3>
+                  <p>Av. Américo Vespucio 1001, Maipú.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Americo+Vespucio+1001,+Maip%C3%BA,+Regi%C3%B3n+Metropolitana/@-33.4801754,-70.7537893,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c3176f5c3f9b:0x55abf5a6db0759d1!8m2!3d-33.4801799!4d-70.7516006" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo La Florida</h3>
+                  <p>Avda. Vicuña Mackenna 6100, La Florida.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Vicu%C3%B1a+Mackenna+6100,+La+Florida,+Regi%C3%B3n+Metropolitana/@-33.5110731,-70.6120708,17z/data=!3m1!4b1!4m5!3m4!1s0x9662d071d0b71357:0xaa28cb6c23775f0!8m2!3d-33.5110776!4d-70.6098821" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo El Llano Subercaseaux</h3>
+                  <p>El Llano Subercaseaux 3519, San Miguel.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Llano+Subercaseaux+3519,+San+Miguel,+Regi%C3%B3n+Metropolitana/@-33.4859699,-70.6537958,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c533879c26bd:0x34ca7abfcf3f789!8m2!3d-33.4859744!4d-70.6516071" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Peñalolén</h3>
+                  <p>Av. Sánchez Fontecilla 12.000, Peñalolén.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Jumbo/@-33.4877619,-70.5591459,17z/data=!3m1!4b1!4m5!3m4!1s0x9662d1c4eb51f3ed:0x592a322636900a39!8m2!3d-33.4877664!4d-70.5569572" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Puente Alto</h3>
+                  <p>Santo Domingo 67, Puente Alto.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Sto+Domingo+67,+Puente+Alto,+Regi%C3%B3n+Metropolitana/@-33.6118276,-70.5788143,17z/data=!3m1!4b1!4m5!3m4!1s0x9662d7ac9d2d4bdd:0xd200f43e82774eda!8m2!3d-33.6118321!4d-70.5766256" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Pajaritos</h3>
+                  <p>Av. Pajaritos 3302, Maipú.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Los+Pajaritos+3302,+Maip%C3%BA,+Regi%C3%B3n+Metropolitana/@-33.4966153,-70.7601192,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c32f46519a29:0xe2b192637ba5ac5f!8m2!3d-33.4966198!4d-70.7579305" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Ñuñoa</h3>
+                  <p>Av. José Pedro Alessandri 1166, Ñuñoa.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Jos%C3%A9+Pedro+Alessandri+1166,+%C3%91u%C3%B1oa,+Regi%C3%B3n+Metropolitana/@-33.4653947,-70.5995156,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cfc20db8fbad:0xb59605cc30f999ad!8m2!3d-33.4653992!4d-70.5973269" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Concha y Toro</h3>
+                  <p>Av. Concha y Toro 3854, Puente Alto.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Concha+Y+Toro+3854,+Puente+Alto,+Regi%C3%B3n+Metropolitana/@-33.5711336,-70.5869031,17z/data=!3m1!4b1!4m5!3m4!1s0x9662d72e15aec209:0x25df7ea8bfd69935!8m2!3d-33.5711381!4d-70.5847144" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo San Bernardo Las Lilas</h3>
+                  <p>Av. Portales 3698, Mall Plaza Sur, San Bernardo.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Jumbo+San+Bernardo/@-33.6329978,-70.711817,17z/data=!4m8!1m2!2m1!1sAv.+Portales+3698,+Mall+Plaza+Sur,+San+Bernardo.!3m4!1s0x9662d8d0ed701505:0x78d15194d4a83d0b!8m2!3d-33.634024!4d-70.7084289" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Valle Alegre</h3>
+                  <p>Avendida Chicureo 130, Colina.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Chicureo+130,+Chicureo,+Colina,+Regi%C3%B3n+Metropolitana/@-33.2861374,-70.7022667,17z/data=!3m1!4b1!4m5!3m4!1s0x9662b8d95ae162cb:0x865429534d616f98!8m2!3d-33.2861374!4d-70.700078" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <!-- Regiones -->
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Iquique</h3>
+                  <p>Av. Heroes de la Concepción 2855, Iquique.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Heroes+de+la+Concepci%C3%B3n+2855,+Iquique,+Regi%C3%B3n+de+Tarapac%C3%A1/@-20.240576,-70.1472011,17z/data=!3m1!4b1!4m5!3m4!1s0x915214758482578f:0x3bd90303c5f4c4a6!8m2!3d-20.240576!4d-70.1450124" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Calama</h3>
+                  <p>Av. Chorrillos 1759, Calama.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Chorrillos+1759,+Calama,+Regi%C3%B3n+de+Antofagasta/@-22.4553172,-68.9260819,17z/data=!3m1!4b1!4m5!3m4!1s0x96ac09c4213991a7:0x572f43bd68648686!8m2!3d-22.4553172!4d-68.9238932" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Antofagasta Angamos</h3>
+                  <p>Av. Angamos 745, Antofagasta.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Angamos+745,+Antofagasta,+Regi%C3%B3n+de+Antofagasta/@-23.6674908,-70.4070357,17z/data=!3m1!4b1!4m5!3m4!1s0x96afd50af7371dab:0xccae9af31a8978f7!8m2!3d-23.6674908!4d-70.404847" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Antofagasta Sur</h3>
+                  <p>Av. Angamos 2170, Antofagasta.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Angamos+2170,+Antofagasta,+Regi%C3%B3n+de+Antofagasta/@-23.6953766,-70.4180352,17z/data=!3m1!4b1!4m5!3m4!1s0x96afd5ece7aaef2d:0x7a408799b1d05132!8m2!3d-23.6953766!4d-70.4158465" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Antofagasta P.A.C.</h3>
+                  <p>Av. Pedro Aguirre Cerda 9400, Antofagasta.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Pedro+Aguirre+Cerda+9400,+Antofagasta,+Regi%C3%B3n+de+Antofagasta/@-23.5799788,-70.3923754,17z/data=!3m1!4b1!4m5!3m4!1s0x96ae2af931ccbbdf:0x41de3f0d821ad098!8m2!3d-23.5799788!4d-70.3901867" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Copiapó</h3>
+                  <p>Av. Copayapu 2406, Copiapó.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Copayapu+2406,+Copiap%C3%B3,+Regi%C3%B3n+de+Atacama/@-27.3825774,-70.3193869,17z/data=!3m1!4b1!4m5!3m4!1s0x9698048a31164f11:0x5d19ee4d6474592b!8m2!3d-27.3825774!4d-70.3171982" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo La Serena</h3>
+                  <p>Av. El Santo 1726, La Serena.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+El+Santo+1726,+La+Serena,+Regi%C3%B3n+de+Coquimbo/@-29.9158695,-71.2591095,17z/data=!3m1!4b1!4m5!3m4!1s0x9691ca6991ccddaf:0x39647a31f94418c2!8m2!3d-29.9158695!4d-71.2569208" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo La Serena Ulriksen</h3>
+                  <p>Av. Guillermo Ulriksen 1630, La Serena.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+El+Santo+1726,+La+Serena,+Regi%C3%B3n+de+Coquimbo/@-29.9158695,-71.2591095,17z/data=!3m1!4b1!4m5!3m4!1s0x9691ca6991ccddaf:0x39647a31f94418c2!8m2!3d-29.9158695!4d-71.2569208" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Los Andes</h3>
+                  <p>Argentina Pte. 805, Los Andes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Argentina+Pte.+805,+Los+Andes,+Regi%C3%B3n+de+Valpara%C3%ADso/@-32.8344629,-70.5900132,17z/data=!3m1!4b1!4m5!3m4!1s0x968804e30c86018f:0x1a001874b36a9ec!8m2!3d-32.8344629!4d-70.5878245" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Viña del Mar</h3>
+                  <p>1 Norte 2901, Viña del Mar.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/1+Norte+2901,+Vi%C3%B1a+del+Mar,+Regi%C3%B3n+de+Valpara%C3%ADso/@-33.0354283,-71.5257288,17z/data=!3m1!4b1!4m5!3m4!1s0x9689de89ee4ffd41:0x323e4910d4ec3152!8m2!3d-33.0354283!4d-71.5235401" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Bosquemar</h3>
+                  <p>Av. Concon Reñaca 3850, Concón.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Concon+Re%C3%B1aca,+Conc%C3%B3n,+Regi%C3%B3n+de+Valpara%C3%ADso/@-32.9339132,-71.5386858,17z/data=!3m1!4b1!4m5!3m4!1s0x9689dd3427a13adf:0x21a7da6c80dc73b5!8m2!3d-32.9339132!4d-71.5364971" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Valparaiso</h3>
+                  <p>Av. Argentina 51, Valparaíso.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Argentina+51,+Valpara%C3%ADso,+Regi%C3%B3n+de+Valpara%C3%ADso/@-33.0439739,-71.6066663,17z/data=!3m1!4b1!4m5!3m4!1s0x9689e0c59bb1a5e1:0x3c8fe4408939afcc!8m2!3d-33.0439739!4d-71.6044776" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo El Belloto</h3>
+                  <p>Avda. Ramón Freire 1851, Quilpué.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Jumbo/@-33.0454893,-71.424766,17z/data=!3m1!4b1!4m5!3m4!1s0x9689d9ac64aab703:0xf4335a74ce9bf311!8m2!3d-33.0454893!4d-71.4225773" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Rancagua</h3>
+                  <p>Pdte. Eduardo Frei Montalva 750, Carretera del Cobre, Rancagua.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Carr+del+Cobre+750,+Rancagua,+Regi%C3%B3n+del+Libertador+Gral.+Bernardo+O%E2%80%99Higgins/@-34.1849507,-70.7266552,17z/data=!3m1!4b1!4m5!3m4!1s0x96634353c5b90f77:0x50c8bdc209935ac3!8m2!3d-34.1849507!4d-70.7244665" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Curicó</h3>
+                  <p>Bernardo O'Higgins 201, Curicó.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Bernardo+O'Higgins+201,+Curic%C3%B3,+Regi%C3%B3n+del+Maule/@-34.9921723,-71.2469186,17z/data=!3m1!4b1!4m5!3m4!1s0x96645706717ecfcd:0x53a809cf986e190f!8m2!3d-34.9921723!4d-71.2447299" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Mall Talca</h3>
+                  <p>Calle 30 Ote., Talca</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Jumbo+Las+Rastras/@-35.4378299,-71.6666839,13z/data=!4m8!1m2!2m1!1sjumbo+mall+talca!3m4!1s0x9665c6d0e6e58843:0x481f3cbf5e74f4e3!8m2!3d-35.4319694!4d-71.627517" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Talca El Arenal</h3>
+                  <p>El Arenal 411, Talca.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/El+Arenal+411,+Talca,+Regi%C3%B3n+del+Maule/@-35.4291141,-71.6744011,17z/data=!3m1!4b1!4m5!3m4!1s0x9665c41ed95ad9e5:0x7ea6981b65118c2b!8m2!3d-35.4291141!4d-71.6722124" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Pedro de Valdivia</h3>
+                  <p>Pedro de Valdivia 1010, Concepción.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Pedro+de+Valdivia+1010,+Concepci%C3%B3n,+Regi%C3%B3n+del+B%C3%ADo+B%C3%ADo/@-36.8462368,-73.0544437,17z/data=!3m1!4b1!4m5!3m4!1s0x9669b66557ea7943:0x191f31ac74f72eb6!8m2!3d-36.8462368!4d-73.052255" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Alessandri Hualpén</h3>
+                  <p>Avenida Costanera Norte 9781, Hualpén.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Costanera+9781,+Concepci%C3%B3n,+Regi%C3%B3n+del+B%C3%ADo+B%C3%ADo/@-36.8349673,-73.0652498,17z/data=!3m1!4b1!4m5!3m4!1s0x9669b5dfc119d2fd:0xbcb098d1d0301d94!8m2!3d-36.8349673!4d-73.0630611" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Mall Center Concepción</h3>
+                  <p>Barros Arana 1068, Concepción.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Barros+Arana+1068,+Concepci%C3%B3n,+Regi%C3%B3n+del+B%C3%ADo+B%C3%ADo/@-36.8248521,-73.0473283,17z/data=!3m1!4b1!4m5!3m4!1s0x9669b5d215343c4d:0x716b15e24ce2ad8f!8m2!3d-36.8248521!4d-73.0451396" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Chillán</h3>
+                  <p>Longitudinal Sur 134, Chillán.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Longitudinal+Sur+134,+Chillan,+Chill%C3%A1n,+Regi%C3%B3n+del+B%C3%ADo+B%C3%ADo/@-36.5951878,-72.1069463,17z/data=!3m1!4b1!4m5!3m4!1s0x9668d7cf6d010621:0x89035661db3fac6b!8m2!3d-36.5951878!4d-72.1047576" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Los Ángeles</h3>
+                  <p>Ercilla 190, Los Ángeles.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Ercilla+190,+Los+Angeles,+Los+%C3%81ngeles,+Regi%C3%B3n+del+B%C3%ADo+B%C3%ADo/@-37.47167,-72.3579787,17z/data=!3m1!4b1!4m5!3m4!1s0x966bdd37ccedf165:0x5f1ff6518a4cb64c!8m2!3d-37.47167!4d-72.35579" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Los Pablos</h3>
+                  <p>Av. Los Pablos 1800, Temuco.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Los+Pablos+1800,+Temuco,+Regi%C3%B3n+de+la+Araucan%C3%ADa/@-38.7440503,-72.6385636,17z/data=!3m1!4b1!4m5!3m4!1s0x9614d41848d5deb1:0x678f9b06fb63de10!8m2!3d-38.7440503!4d-72.6363749" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Temuco</h3>
+                  <p>Av. Alemania 671, Temuco.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Av.+Alemania+671,+Temuco,+Regi%C3%B3n+de+la+Araucan%C3%ADa/@-38.7339241,-72.6126856,17z/data=!3m1!4b1!4m5!3m4!1s0x9614d3f69fbb72a3:0xb7f908fed9c35051!8m2!3d-38.7339241!4d-72.6104969" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Osorno</h3>
+                  <p>Plaza Yungay 645, Osorno.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Jumbo+Osorno/@-40.574278,-73.1323245,17z/data=!3m1!4b1!4m5!3m4!1s0x96163660e23aa23b:0x281e82418f841472!8m2!3d-40.574278!4d-73.1301358" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Doña Ema</h3>
+                  <p>Ruta 225 Km. 1, Puerto Varas.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/search/Ruta+225+Km.+1,+Puerto+Varas/@-41.2904398,-72.9442106,12z/data=!3m1!4b1" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Doña Ema</h3>
+                  <p>Ruta 225 Km. 1, Puerto Varas.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/search/Ruta+225+Km.+1,+Puerto+Varas/@-41.2904398,-72.9442106,12z/data=!3m1!4b1" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Jumbo Puerto Montt</h3>
+                  <p>Ruta 225 Km. 1, Puerto Varas.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Ej%C3%A9rcito+470,+Puerto+Montt,+Regi%C3%B3n+de+los+Lagos/@-41.4685688,-72.9336654,17z/data=!3m1!4b1!4m5!3m4!1s0x96183a5bce81109f:0x2fac95925a1dc107!8m2!3d-41.4685688!4d-72.9314767" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Jumbo Valdivia</h3>
+                  <p>Errázuriz 999, Valdivia.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.com/maps/place/Err%C3%A1zuriz+999,+Valdivia,+Regi%C3%B3n+de+los+R%C3%ADos/@-39.8179734,-73.2377687,17z/data=!3m1!4b1!4m5!3m4!1s0x9615ee7b88b0191d:0xb531eba2e503a0f7!8m2!3d-39.8179734!4d-73.23558" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /container -->
+    <div class="container-fluid bg-footer-2 c-white text-center hidden-lg">
+      <img src="../img/2018/logo.svg" style="width: 250px; margin-top: -10px;" />
+      <h4><a href="#" style="text-decoration: none;" class="c-white">Nosotros</a> | <a href="mailto:contacto@kingshawaiian.cl" style="text-decoration: none;" class="c-white">Contacto</a></h4>
+      <div class="text-center padTop50 padBottom100">
+        <div class="col-xs-12 col-md-4">
+          <small>© 2019 King’s Hawaiian Holding Co.,Inc.</small>
+        </div>
+        <div class="col-xs-12 col-md-4 text-center">
+          <a href="https://www.facebook.com/kingshawaiianchile/" target="_blank"><img src="../img/kh/icon-fb.png"></a>
+          <a href="https://www.instagram.com/kingshawaiiancl/" target="_blank"><img src="../img/kh/icon-tw.png" class="margRight10 margLeft10"></a>
+          <a href="https://www.youtube.com/watch?v=OdxMh1h4a2Q" target="_blank"><img src="../img/kh/icon-yt.png"></a>           
+        </div>
+        <div class="col-xs-12 col-md-4 text-center">
+          <small>19161 Harborgate Way, Torrance, CA 90501 (877) 695-4227</small>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid bg-footer-2 c-white text-center hidden-md hidden-xs hidden-sm">
+      <img src="../img/2018/logo.svg" style="width: 250px; margin-top: 20px;" />
+      <h4><a href="#nosotros" style="text-decoration: none;" class="c-white">Nosotros</a> | <a href="mailto:contacto@kingshawaiian.cl" style="text-decoration: none;" class="c-white">Contacto</a></h4>
+      <div class="text-center padTop50 padBottom100">
+        <div class="col-xs-12 col-md-4">
+          <small>© 2019 King’s Hawaiian Holding Co.,Inc.</small>
+        </div>
+        <div class="col-xs-12 col-md-4 text-center">
+          <a href="https://www.facebook.com/kingshawaiianchile/" target="_blank"><img src="../img/kh/icon-fb.png"></a>
+          <a href="https://www.instagram.com/kingshawaiiancl/" target="_blank"><img src="../img/kh/icon-ig.png" class="margRight10 margLeft10"></a>
+          <a href="https://www.youtube.com/watch?v=OdxMh1h4a2Q" target="_blank"><img src="../img/kh/icon-yt.png"></a>           
+        </div>
+        <div class="col-xs-12 col-md-4 text-center">
+          <small>19161 Harborgate Way, Torrance, CA 90501 (877) 695-4227</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../js/modal.js"></script>
+    <!-- Fuelux -->
+    <script src="../js/fuelux/fuelux.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="../js/jquery.easing.min.js"></script>
+    <script src="../js/scrolling-nav.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-98887166-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <script>
+      function goBack() {
+          window.history.back();
+      }
+    </script>
+
+    
+
+    <script>
+  $(document).ready(function(){
+    $(".btn-box-l-vitacura").click(function(){
+      $(".box-l-vitacura").addClass("mostrar");      
+      $(".box-l-vitacura").removeClass("esconder");
+      $(".btn-box-l-vitacura").addClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-estoril").click(function(){
+      $(".box-l-estoril").addClass("mostrar");
+      $(".box-l-estoril").removeClass("esconder");
+      $(".btn-box-l-estoril").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-colon").click(function(){
+      $(".box-l-colon").addClass("mostrar");
+      $(".box-l-colon").removeClass("esconder");
+      $(".btn-box-l-colon").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-dehesa").click(function(){
+      $(".box-l-dehesa").addClass("mostrar");
+      $(".box-l-dehesa").removeClass("esconder");
+      $(".btn-box-l-dehesa").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-tomas").click(function(){
+      $(".box-l-tomas").addClass("mostrar");
+      $(".box-l-tomas").removeClass("esconder");
+      $(".btn-box-l-tomas").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-apoquindo").click(function(){
+      $(".box-l-apoquindo").addClass("mostrar");
+      $(".box-l-apoquindo").removeClass("esconder");
+      $(".btn-box-l-apoquindo").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-gales").click(function(){
+      $(".box-l-gales").addClass("mostrar");
+      $(".box-l-gales").removeClass("esconder");
+      $(".btn-box-l-gales").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-reina").click(function(){
+      $(".box-l-reina").addClass("mostrar");
+      $(".box-l-reina").removeClass("esconder");
+      $(".btn-box-l-reina").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-dominicos").click(function(){
+      $(".box-l-dominicos").addClass("mostrar");
+      $(".box-l-dominicos").removeClass("esconder");
+      $(".btn-box-l-dominicos").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-buenaventura").click(function(){
+      $(".box-l-buenaventura").addClass("mostrar");
+      $(".box-l-buenaventura").removeClass("esconder");
+      $(".btn-box-l-buenaventura").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-puente-nuevo").click(function(){
+      $(".box-l-puente-nuevo").addClass("mostrar");
+      $(".box-l-puente-nuevo").removeClass("esconder");
+      $(".btn-box-l-puente-nuevo").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+    });
+    $(".btn-box-j-kennedy").click(function(){
+      $(".box-j-kennedy").addClass("mostrar");      
+      $(".box-j-kennedy").removeClass("esconder");
+      $(".btn-box-j-kennedy").addClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-costanera").click(function(){
+      $(".box-j-costanera").addClass("mostrar");      
+      $(".box-j-costanera").removeClass("esconder");
+      $(".btn-box-j-costanera").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-dehesa").click(function(){
+      $(".box-j-dehesa").addClass("mostrar");      
+      $(".box-j-dehesa").removeClass("esconder");
+      $(".btn-box-j-dehesa").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-reina").click(function(){
+      $(".box-j-reina").addClass("mostrar");      
+      $(".box-j-reina").removeClass("esconder");
+      $(".btn-box-j-reina").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-castillo").click(function(){
+      $(".box-j-castillo").addClass("mostrar");      
+      $(".box-j-castillo").removeClass("esconder");
+      $(".btn-box-j-castillo").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-trapenses").click(function(){
+      $(".box-j-trapenses").addClass("mostrar");      
+      $(".box-j-trapenses").removeClass("esconder");
+      $(".btn-box-j-trapenses").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-dominicos").click(function(){
+      $(".box-j-dominicos").addClass("mostrar");      
+      $(".box-j-dominicos").removeClass("esconder");
+      $(".btn-box-j-dominicos").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-bilbao").click(function(){
+      $(".box-j-bilbao").addClass("mostrar");      
+      $(".box-j-bilbao").removeClass("esconder");
+      $(".btn-box-j-bilbao").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-chicureo").click(function(){
+      $(".box-j-chicureo").addClass("mostrar");      
+      $(".box-j-chicureo").removeClass("esconder");
+      $(".btn-box-j-chicureo").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-maipu").click(function(){
+      $(".box-j-maipu").addClass("mostrar");      
+      $(".box-j-maipu").removeClass("esconder");
+      $(".btn-box-j-maipu").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-florida").click(function(){
+      $(".box-j-florida").addClass("mostrar");      
+      $(".box-j-florida").removeClass("esconder");
+      $(".btn-box-j-florida").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-llano").click(function(){
+      $(".box-j-llano").addClass("mostrar");      
+      $(".box-j-llano").removeClass("esconder");
+      $(".btn-box-j-llano").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-penalolen").click(function(){
+      $(".box-j-penalolen").addClass("mostrar");      
+      $(".box-j-penalolen").removeClass("esconder");
+      $(".btn-box-j-penalolen").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-puente").click(function(){
+      $(".box-j-puente").addClass("mostrar");      
+      $(".box-j-puente").removeClass("esconder");
+      $(".btn-box-j-puente").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-pajaritos").click(function(){
+      $(".box-j-pajaritos").addClass("mostrar");      
+      $(".box-j-pajaritos").removeClass("esconder");
+      $(".btn-box-j-pajaritos").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-nunoa").click(function(){
+      $(".box-j-nunoa").addClass("mostrar");      
+      $(".box-j-nunoa").removeClass("esconder");
+      $(".btn-box-j-nunoa").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-concha").click(function(){
+      $(".box-j-concha").addClass("mostrar");      
+      $(".box-j-concha").removeClass("esconder");
+      $(".btn-box-j-concha").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-bernardo").click(function(){
+      $(".box-j-bernardo").addClass("mostrar");      
+      $(".box-j-bernardo").removeClass("esconder");
+      $(".btn-box-j-bernardo").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+    });
+    $(".btn-box-u-militares").click(function(){
+      $(".box-u-militares").addClass("mostrar");      
+      $(".box-u-militares").removeClass("esconder");
+      $(".btn-box-u-militares").addClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-santamaria").click(function(){
+      $(".box-u-santamaria").addClass("mostrar");      
+      $(".box-u-santamaria").removeClass("esconder");
+      $(".btn-box-u-santamaria").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-trapenses").click(function(){
+      $(".box-u-trapenses").addClass("mostrar");      
+      $(".box-u-trapenses").removeClass("esconder");
+      $(".btn-box-u-trapenses").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-tranqueras").click(function(){
+      $(".box-u-tranqueras").addClass("mostrar");      
+      $(".box-u-tranqueras").removeClass("esconder");
+      $(".btn-box-u-tranqueras").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-manquehue").click(function(){
+      $(".box-u-manquehue").addClass("mostrar");      
+      $(".box-u-manquehue").removeClass("esconder");
+      $(".btn-box-u-manquehue").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-escuela").click(function(){
+      $(".box-u-escuela").addClass("mostrar");      
+      $(".box-u-escuela").removeClass("esconder");
+      $(".btn-box-u-escuela").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-gales").click(function(){
+      $(".box-u-gales").addClass("mostrar");      
+      $(".box-u-gales").removeClass("esconder");
+      $(".btn-box-u-gales").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+    });
+  ;});
+      </script>  
+  </body>
+</html>

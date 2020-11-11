@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="es_CL">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/kh/favicon.ico">
+
+    <title>King's Hawaiian</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/navbar-static-top-v2.css" rel="stylesheet">
+
+    <!-- Íconos -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Typos -->
+    <link href="../fonts/fonts.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+       #map {
+        height: 600px;
+        width: 100%;
+       }
+    </style>
+
+  </head>
+
+ <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8&appId=120312684974357";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default margBottom0 navbar-static-top" style="background-color: #fb4324;position: fixed; width: 100%;">
+      <div class="container-fluid ">
+        <div class="col-md-4 redes">
+          <ul class="nav navbar-nav navbar-left text-center">
+            <li class="hidden-xs hidden-sm menu-item"><a href="https://www.facebook.com/kingshawaiianchile" class="nav-profile dropdown-toggle" target="_blank"><img src="../img/kh/icon-fb.png"></a>
+            </li>
+            <li class="hidden-xs hidden-sm menu-item"><a href="https://www.instagram.com/kingshawaiiancl/" class="nav-profile dropdown-toggle" target="_blank"><img src="../img/kh/icon-ig.png"></a>
+            </li>
+            <li class="hidden-xs hidden-sm menu-item"><a href="https://www.youtube.com/watch?v=OdxMh1h4a2Q" class="nav-profile dropdown-toggle" target="_blank"><img src="../img/kh/icon-yt.png"></a>
+            </li>
+          </ul>
+        </div>        
+        
+        <div class="navbar-header col-md-4">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div>
+           <a href="#"><img src="../img/2018/logo-top.svg" class="logo-top" /></a>
+          </div>
+        </div>
+      
+        <div class="col-md-4">
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right text-center">
+              <li class="hidden-xs menu-item dropdown"><a href="#" data-toggle="dropdown" class="nav-profile dropdown-toggle"><img src="../img/kh/menu.png"></a>
+                <ul class="dropdown-menu">
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#inicio">Inicio</a></li>
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#nosotros">Nosotros</a></li>
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#historia">Historia</a></li>
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#donde">Dónde comprar</a></li>
+                  <li class="menu-item dropdown dropdown-submenu"><a class="page-scroll" href="#recetas">Recetas</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>        
+      </div>
+    </nav>     
+
+    <div class="container" style="padding-top: 115px; margin-bottom: 30px;">
+      <div class="row" style="padding-top:1%;">
+        <div class="row">
+          <div class="col-xs-12 col-md-10">
+            <h1 class="c-brown" style="font-family: 'Conv_ITCAvantGardePro-Bold';text-transform: uppercase;">Dónde comprar</h1>
+          </div>
+          <div class="col-xs-12 col-md-2">
+            <img src="../img/kh/logo-lider.png">
+          </div>
+        </div>        
+        <div class="row padTop50">
+          <div class="col-xs-12 col-md-8">
+            <div id="map"></div>
+            <script>
+              var map;
+              function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 9,
+                  center: new google.maps.LatLng(-33.221313, -71.183581),
+                  mapTypeId: 'roadmap'
+                });
+
+                var iconBase = 'http://kingshawaiian.cl/img/kh/';
+                var icons = {
+                  info: {
+                    icon: iconBase + 'map-marker.png'
+                  }
+                };
+
+                var features = [
+                  {
+                    position: new google.maps.LatLng(-33.421909, -70.608560),
+                    type: 'info', 
+                  }, {
+                    position: new google.maps.LatLng(-33.439839, -70.608552),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.453996, -70.606414),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.399321, -70.590717),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.418528, -70.552161),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.384853, -70.533455),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.512229, -70.656690),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.366158, -70.678498),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.485614, -70.578315),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.422796, -70.596705),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.474449, -70.599558),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.386830, -70.567914),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.006916, -71.545709),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.428493, -70.574411),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.408447, -70.568047),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.424888, -70.553441),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.543476, -70.564912),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.045435, -71.418229),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.401350, -70.516557),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.460435, -70.544865),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.370666, -70.512423),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.280330, -70.654877),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.454381, -70.600617),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.588548, -70.675231),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.390089, -70.498927),
+                    type: 'info'
+                  }, {
+                    position: new google.maps.LatLng(-33.440799, -70.535243),
+                    type: 'info'
+                  }
+                ];
+
+                // Create markers.
+                features.forEach(function(feature) {
+                  var marker = new google.maps.Marker({
+                    position: feature.position,
+                    icon: icons[feature.type].icon,
+                    map: map
+                  });
+                });
+              }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_5HyX-JhF7-RKgr29V6O6ij1tG_P-2DE&callback=initMap">
+            </script>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="row" id="direcciones" style="overflow-y: scroll;max-height: 600px;overflow-x: hidden;">
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Lider Lyon</h3>
+                  <p>Av. Nueva Providencia 2249, Providencia.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Nueva+Providencia+2249,+Providencia,+Regi%C3%B3n+Metropolitana/@-33.4221193,-70.6107592,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf68b9be08f5:0x47465c406a234170!8m2!3d-33.4221238!4d-70.6085705" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Pedro de Valdivia</h3>
+                  <p>Pedro de Valdivia 1885, Providencia.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Pedro+de+Valdivia+1885,+Providencia,+Regi%C3%B3n+Metropolitana/@-33.4400046,-70.6107625,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf9d43bdeb07:0xc47f2ed73d089035!8m2!3d-33.4400091!4d-70.6085738" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Irarrazaval</h3>
+                  <p>Irarrazaval Av. 2410.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Lider+Express/@-33.4541346,-70.6086135,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf917038b999:0xf259323823372c78!8m2!3d-33.4541391!4d-70.6064248" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Vitacura</h3>
+                  <p>Vitacura 4100, Vitacura.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av+Vitacura+4100,+Vitacura,+Regi%C3%B3n+Metropolitana/@-33.3993612,-70.592916,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf3143dce0d9:0x6fd0198856452c69!8m2!3d-33.3993657!4d-70.5907273" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Colón</h3>
+                  <p>Cuarto Centenario 1016, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Lider+Rotonda+Atenas/@-33.4187294,-70.554339,17z/data=!4m13!1m7!3m6!1s0x9662ceed641d700f:0x1bab65bfef0e1f6a!2sIV+Centenario+1016,+Las+Condes,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.4187339!4d-70.5521503!3m4!1s0x9662ceed42d4ff33:0xe4ac8d3a1539cb59!8m2!3d-33.4183791!4d-70.5516062" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Estoril</h3>
+                  <p>Av. Las Condes 10295, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Las+Condes+10295,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.3850185,-70.5356543,17z/data=!3m1!4b1!4m5!3m4!1s0x9662ceacbd90407b:0x16f0cdb921710f42!8m2!3d-33.385023!4d-70.5334656" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder La Dehesa</h3>
+                  <p>El Rodeo 12850, Lo Barnechea.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/El+Rodeo+12850,+Lo+Barnechea,+Regi%C3%B3n+Metropolitana/@-33.3530736,-70.5228262,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cbd9614752c9:0x4a66f9d16d41a248!8m2!3d-33.3530781!4d-70.5206375" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Gran Avenida</h3>
+                  <p>Gran Avenida 6150, San Miguel.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Gran+Avenida+Jose+Miguel+Carrera+6150,+San+Miguel,+Regi%C3%B3n+Metropolitana/@-33.511795,-70.6591036,17z/data=!3m1!4b1!4m5!3m4!1s0x9662dae803c860cd:0x5dc2fdd1c6c5e4ea!8m2!3d-33.5117995!4d-70.6569149" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Huechuraba</h3>
+                  <p>Av. Américo Vespucio 1737, Huechuraba.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Americo+Vespucio+1737,+Huechuraba,+Regi%C3%B3n+Metropolitana/@-33.366216,-70.6806651,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c6fd067b8cf3:0xdffb4986cf4249fc!8m2!3d-33.3662205!4d-70.6784764" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Quilín</h3>
+                  <p>Av. Américo Vespucio 3100, Peñalolén.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Americo+Vespucio+3100,+Penalolen,+Pe%C3%B1alol%C3%A9n,+Regi%C3%B3n+Metropolitana/@-33.4858418,-70.5801814,17z/data=!3m1!4b1!4m5!3m4!1s0x9662d02dbd4ec1dd:0x68de8aa2f19e396a!8m2!3d-33.4858463!4d-70.5779927" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Tobalaba</h3>
+                  <p>Las Camelias 2875, Providencia.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Las+Camelias+2875,+Providencia,+Regi%C3%B3n+Metropolitana/@-33.4228632,-70.5989045,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf133c8f0c6b:0x7f2dee17ae63d071!8m2!3d-33.4228677!4d-70.5967158" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Macul</h3>
+                  <p>Av. José Pedro Alessandri 2127, Macul.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Jos%C3%A9+Pedro+Alessandri+2127,+Macul,+Regi%C3%B3n+Metropolitana/@-33.474516,-70.6017464,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cfe73be1f561:0x982e219f1fc08ac2!8m2!3d-33.4745205!4d-70.5995577" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Vitacura</h3>
+                  <p>Buenaventura 1770, Vitacura.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/L%C3%ADder/@-33.3868703,-70.5701027,17z/data=!4m13!1m7!3m6!1s0x9662c92c81884c45:0x744c385f5976f2ab!2sBuenaventura+1770,+Vitacura,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.3868748!4d-70.567914!3m4!1s0x9662c92c7faff8ab:0xe4a790f0223df97c!8m2!3d-33.3863662!4d-70.568197" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Viña del Mar</h3>
+                  <p>Av. 15 Norte 961, Viña del Mar.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Espacio+Urbano+15+Norte/@-33.0069744,-71.5478762,17z/data=!3m1!4b1!4m5!3m4!1s0x9689ddc17ffffb4d:0xe906f7d20cb3b35!8m2!3d-33.0069789!4d-71.5456875" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Latadia</h3>
+                  <p>A. Vespucio Sur 1790, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Am%C3%A9rico+Vespucio+Sur+1790,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4285603,-70.5766106,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cf01fb20a41f:0xb1965db770190194!8m2!3d-33.4285648!4d-70.5744219" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Apoquindo</h3>
+                  <p>Apoquindo 6060, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Apoquindo+6060,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4084966,-70.5702352,17z/data=!3m1!4b1!4m5!3m4!1s0x9662ceddd5cfd3ed:0x1c0866d0d211b8ca!8m2!3d-33.4085011!4d-70.5680465" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Tomás Moro</h3>
+                  <p>Tomás Moro 1590, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Tom%C3%A1s+Moro+1590,+Las+Condes,+Regi%C3%B3n+Metropolitana/@-33.4249194,-70.5556409,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cef47f0a8111:0x64aaa1dc2b458e6c!8m2!3d-33.4249239!4d-70.5534522" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder La Florida</h3>
+                  <p>Santa Amalia 1763, La Florida.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Sta+Amalia+1763,+La+Florida,+Regi%C3%B3n+Metropolitana/@-33.5435252,-70.5671003,17z/data=!3m1!4b1!4m5!3m4!1s0x9662d1230bc150cd:0xa536fc343dd95197!8m2!3d-33.5435297!4d-70.5649116" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder El Belloto</h3>
+                  <p>Ramón Freire 1351, Quilpue.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Hiper+L%C3%ADder/@-33.045197,-71.4196986,17z/data=!4m8!1m2!2m1!1sRam%C3%B3n+Freire+1351,+Quilpue.!3m4!1s0x9689d9b28101f06d:0x6a3bb938fb0c49a3!8m2!3d-33.0455843!4d-71.4182165" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Los Dominicos</h3>
+                  <p>Camino El Alba 11865, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Lider+Los+Dominicos/@-33.4013994,-70.5187351,17z/data=!4m13!1m7!3m6!1s0x9662cc18690aab15:0xeaba5461bfe4eeba!2sCamino+El+Alba+11865,+Las+Condes,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.4014039!4d-70.5165464!3m4!1s0x9662cc186f61f0a3:0x7eb36cf91ddf55e4!8m2!3d-33.4020223!4d-70.5161085" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder La Reina</h3>
+                  <p>Jorge Alessandri 1131, La Reina.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/L%C3%ADder+La+Reina/@-33.4603231,-70.5459382,17z/data=!4m13!1m7!3m6!1s0x9662ce10aef7e3b7:0x6a7f8f546e1a5bda!2sJorge+Alessandri+1131,+La+Reina,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.4603276!4d-70.5437495!3m4!1s0x9662ce174de3502f:0xbc6af9d80ede4915!8m2!3d-33.4605735!4d-70.5448806" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Puente Nuevo</h3>
+                  <p>Avda. Las Condes 12916, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Las+Condes+12916,+Lo+Barnechea,+Regi%C3%B3n+Metropolitana/@-33.3696756,-70.5143654,17z/data=!3m1!4b1!4m5!3m4!1s0x9662cbf028a496a1:0xb6d33a9d6bfacb0a!8m2!3d-33.3696801!4d-70.5121767" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Piedra Roja</h3>
+                  <p>Av. Chicureo s/n Sector Laguna Piedra Roja, Colina.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Av.+Chicureo,+Chicureo,+Colina,+Regi%C3%B3n+Metropolitana/@-33.2811325,-70.6551625,16.71z/data=!4m5!3m4!1s0x9662b851adf7711f:0x13d52dfc5f8b0c8c!8m2!3d-33.2804829!4d-70.6548232" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Irarrazaval</h3>
+                  <p>Av. Irarrazaval 2928, Ñuñoa.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Lider+Irarr%C3%A1zaval/@-33.4535257,-70.6028591,17z/data=!4m13!1m7!3m6!1s0x9662cf967fa02803:0xaee182e9f13ac2df!2zSXJhcnLDoXphdmFsIDI5MjgsIMORdcOxb2EsIFJlZ2nDs24gTWV0cm9wb2xpdGFuYQ!3b1!8m2!3d-33.4534739!4d-70.6006731!3m4!1s0x9662cf95d2488faf:0x89f2d9b5a9c51254!8m2!3d-33.454564!4d-70.6006303" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Hiper Nos</h3>
+                  <p>Av. Santa Teresa N°683, San Bernardo.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Sta+Teresa+683,+San+Bernardo,+Regi%C3%B3n+Metropolitana/@-33.588597,-70.6774091,17z/data=!3m1!4b1!4m5!3m4!1s0x9662d979f53bd049:0xc030e3161c28776!8m2!3d-33.5886015!4d-70.6752204" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-2">
+                <div class="col-xs-8">
+                  <h3>Líder Plaza Los Dominicos</h3>
+                  <p>Av. La Plaza N° 590, Las Condes.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/L%C3%ADder+Express+La+Plaza/@-33.3901477,-70.5011267,17z/data=!4m13!1m7!3m6!1s0x9662cc6d9765a717:0x71c9bc2eeb063a83!2sAv+Plaza+590,+Las+Condes,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.3901522!4d-70.498938!3m4!1s0x9662cc6dbc2d9995:0x256e7b0fa6228db9!8m2!3d-33.3904853!4d-70.4986205" target="_blank">VER MAPA</a></button>
+                </div>
+              </div> 
+              <div class="row bg-map-1">
+                <div class="col-xs-8">
+                  <h3>Líder Las Brujas</h3>
+                  <p>Av. Principales de Gales N° 9140, La Reina.</p>
+                </div>
+                <div class="col-xs-4">
+                  <button class="btn-map"><a href="https://www.google.cl/maps/place/Lider+Principe+De+Gales/@-33.4408349,-70.5374206,17z/data=!4m13!1m7!3m6!1s0x9662ce70fdf65835:0x6da3d6326e1949da!2sPr%C3%ADncipe+de+Gales+9140,+La+Reina,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.4408349!4d-70.5352319!3m4!1s0x9662ce70ffa87dab:0xd27299136313a617!8m2!3d-33.440986!4d-70.535645" target="_blank">VER MAPA</a></button>
+                </div>
+              </div>            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /container -->
+    <div class="container-fluid bg-footer-2 c-white text-center hidden-lg">
+      <img src="../img/2018/logo.svg" style="width: 250px; margin-top: -10px;" />
+      <h4><a href="#" style="text-decoration: none;" class="c-white">Nosotros</a> | <a href="mailto:contacto@kingshawaiian.cl" style="text-decoration: none;" class="c-white">Contacto</a></h4>
+      <div class="text-center padTop50 padBottom100">
+        <div class="col-xs-12 col-md-4">
+          <small>© 2019 King’s Hawaiian Holding Co.,Inc.</small>
+        </div>
+        <div class="col-xs-12 col-md-4 text-center">
+          <a href="https://www.facebook.com/kingshawaiianchile/" target="_blank"><img src="../img/kh/icon-fb.png"></a>
+          <a href="https://www.instagram.com/kingshawaiiancl/" target="_blank"><img src="../img/kh/icon-tw.png" class="margRight10 margLeft10"></a>
+          <a href="https://www.youtube.com/watch?v=OdxMh1h4a2Q" target="_blank"><img src="../img/kh/icon-yt.png"></a>           
+        </div>
+        <div class="col-xs-12 col-md-4 text-center">
+          <small>19161 Harborgate Way, Torrance, CA 90501 (877) 695-4227</small>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid bg-footer-2 c-white text-center hidden-md hidden-xs hidden-sm">
+      <img src="../img/2018/logo.svg" style="width: 250px; margin-top: 20px;" />
+      <h4><a href="#nosotros" style="text-decoration: none;" class="c-white">Nosotros</a> | <a href="mailto:contacto@kingshawaiian.cl" style="text-decoration: none;" class="c-white">Contacto</a></h4>
+      <div class="text-center padTop50 padBottom100">
+        <div class="col-xs-12 col-md-4">
+          <small>© 2019 King’s Hawaiian Holding Co.,Inc.</small>
+        </div>
+        <div class="col-xs-12 col-md-4 text-center">
+          <a href="https://www.facebook.com/kingshawaiianchile/" target="_blank"><img src="../img/kh/icon-fb.png"></a>
+          <a href="https://www.instagram.com/kingshawaiiancl/" target="_blank"><img src="../img/kh/icon-ig.png" class="margRight10 margLeft10"></a>
+          <a href="https://www.youtube.com/watch?v=OdxMh1h4a2Q" target="_blank"><img src="../img/kh/icon-yt.png"></a>           
+        </div>
+        <div class="col-xs-12 col-md-4 text-center">
+          <small>19161 Harborgate Way, Torrance, CA 90501 (877) 695-4227</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../js/modal.js"></script>
+    <!-- Fuelux -->
+    <script src="../js/fuelux/fuelux.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="../js/jquery.easing.min.js"></script>
+    <script src="../js/scrolling-nav.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-98887166-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <script>
+      function goBack() {
+          window.history.back();
+      }
+    </script>
+
+    
+
+    <script>
+  $(document).ready(function(){
+    $(".btn-box-l-vitacura").click(function(){
+      $(".box-l-vitacura").addClass("mostrar");      
+      $(".box-l-vitacura").removeClass("esconder");
+      $(".btn-box-l-vitacura").addClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-estoril").click(function(){
+      $(".box-l-estoril").addClass("mostrar");
+      $(".box-l-estoril").removeClass("esconder");
+      $(".btn-box-l-estoril").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-colon").click(function(){
+      $(".box-l-colon").addClass("mostrar");
+      $(".box-l-colon").removeClass("esconder");
+      $(".btn-box-l-colon").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-dehesa").click(function(){
+      $(".box-l-dehesa").addClass("mostrar");
+      $(".box-l-dehesa").removeClass("esconder");
+      $(".btn-box-l-dehesa").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-tomas").click(function(){
+      $(".box-l-tomas").addClass("mostrar");
+      $(".box-l-tomas").removeClass("esconder");
+      $(".btn-box-l-tomas").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-apoquindo").click(function(){
+      $(".box-l-apoquindo").addClass("mostrar");
+      $(".box-l-apoquindo").removeClass("esconder");
+      $(".btn-box-l-apoquindo").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-gales").click(function(){
+      $(".box-l-gales").addClass("mostrar");
+      $(".box-l-gales").removeClass("esconder");
+      $(".btn-box-l-gales").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-reina").click(function(){
+      $(".box-l-reina").addClass("mostrar");
+      $(".box-l-reina").removeClass("esconder");
+      $(".btn-box-l-reina").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-dominicos").click(function(){
+      $(".box-l-dominicos").addClass("mostrar");
+      $(".box-l-dominicos").removeClass("esconder");
+      $(".btn-box-l-dominicos").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-buenaventura").click(function(){
+      $(".box-l-buenaventura").addClass("mostrar");
+      $(".box-l-buenaventura").removeClass("esconder");
+      $(".btn-box-l-buenaventura").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-puente-nuevo").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-puente-nuevo").addClass("esconder");
+    });
+    $(".btn-box-l-puente-nuevo").click(function(){
+      $(".box-l-puente-nuevo").addClass("mostrar");
+      $(".box-l-puente-nuevo").removeClass("esconder");
+      $(".btn-box-l-puente-nuevo").addClass("btn-activo");
+      $(".btn-box-l-vitacura").removeClass("btn-activo");
+      $(".btn-box-l-estoril").removeClass("btn-activo");
+      $(".btn-box-l-colon").removeClass("btn-activo");
+      $(".btn-box-l-dehesa").removeClass("btn-activo");
+      $(".btn-box-l-tomas").removeClass("btn-activo");
+      $(".btn-box-l-apoquindo").removeClass("btn-activo");
+      $(".btn-box-l-gales").removeClass("btn-activo");
+      $(".btn-box-l-reina").removeClass("btn-activo");
+      $(".btn-box-l-dominicos").removeClass("btn-activo");
+      $(".btn-box-l-buenaventura").removeClass("btn-activo");
+      $(".box-l-vitacura").addClass("esconder");
+      $(".box-l-estoril").addClass("esconder");
+      $(".box-l-colon").addClass("esconder");
+      $(".box-l-dehesa").addClass("esconder");
+      $(".box-l-tomas").addClass("esconder");
+      $(".box-l-apoquindo").addClass("esconder");
+      $(".box-l-gales").addClass("esconder");
+      $(".box-l-reina").addClass("esconder");
+      $(".box-l-dominicos").addClass("esconder");
+      $(".box-l-buenaventura").addClass("esconder");
+    });
+    $(".btn-box-j-kennedy").click(function(){
+      $(".box-j-kennedy").addClass("mostrar");      
+      $(".box-j-kennedy").removeClass("esconder");
+      $(".btn-box-j-kennedy").addClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-costanera").click(function(){
+      $(".box-j-costanera").addClass("mostrar");      
+      $(".box-j-costanera").removeClass("esconder");
+      $(".btn-box-j-costanera").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-dehesa").click(function(){
+      $(".box-j-dehesa").addClass("mostrar");      
+      $(".box-j-dehesa").removeClass("esconder");
+      $(".btn-box-j-dehesa").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-reina").click(function(){
+      $(".box-j-reina").addClass("mostrar");      
+      $(".box-j-reina").removeClass("esconder");
+      $(".btn-box-j-reina").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-castillo").click(function(){
+      $(".box-j-castillo").addClass("mostrar");      
+      $(".box-j-castillo").removeClass("esconder");
+      $(".btn-box-j-castillo").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-trapenses").click(function(){
+      $(".box-j-trapenses").addClass("mostrar");      
+      $(".box-j-trapenses").removeClass("esconder");
+      $(".btn-box-j-trapenses").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-dominicos").click(function(){
+      $(".box-j-dominicos").addClass("mostrar");      
+      $(".box-j-dominicos").removeClass("esconder");
+      $(".btn-box-j-dominicos").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-bilbao").click(function(){
+      $(".box-j-bilbao").addClass("mostrar");      
+      $(".box-j-bilbao").removeClass("esconder");
+      $(".btn-box-j-bilbao").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-chicureo").click(function(){
+      $(".box-j-chicureo").addClass("mostrar");      
+      $(".box-j-chicureo").removeClass("esconder");
+      $(".btn-box-j-chicureo").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-maipu").click(function(){
+      $(".box-j-maipu").addClass("mostrar");      
+      $(".box-j-maipu").removeClass("esconder");
+      $(".btn-box-j-maipu").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-florida").click(function(){
+      $(".box-j-florida").addClass("mostrar");      
+      $(".box-j-florida").removeClass("esconder");
+      $(".btn-box-j-florida").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-llano").click(function(){
+      $(".box-j-llano").addClass("mostrar");      
+      $(".box-j-llano").removeClass("esconder");
+      $(".btn-box-j-llano").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-penalolen").click(function(){
+      $(".box-j-penalolen").addClass("mostrar");      
+      $(".box-j-penalolen").removeClass("esconder");
+      $(".btn-box-j-penalolen").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-puente").click(function(){
+      $(".box-j-puente").addClass("mostrar");      
+      $(".box-j-puente").removeClass("esconder");
+      $(".btn-box-j-puente").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-pajaritos").click(function(){
+      $(".box-j-pajaritos").addClass("mostrar");      
+      $(".box-j-pajaritos").removeClass("esconder");
+      $(".btn-box-j-pajaritos").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-nunoa").click(function(){
+      $(".box-j-nunoa").addClass("mostrar");      
+      $(".box-j-nunoa").removeClass("esconder");
+      $(".btn-box-j-nunoa").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-concha").click(function(){
+      $(".box-j-concha").addClass("mostrar");      
+      $(".box-j-concha").removeClass("esconder");
+      $(".btn-box-j-concha").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-bernardo").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-bernardo").addClass("esconder");
+    });
+    $(".btn-box-j-bernardo").click(function(){
+      $(".box-j-bernardo").addClass("mostrar");      
+      $(".box-j-bernardo").removeClass("esconder");
+      $(".btn-box-j-bernardo").addClass("btn-activo");
+      $(".btn-box-j-kennedy").removeClass("btn-activo");
+      $(".btn-box-j-costanera").removeClass("btn-activo");
+      $(".btn-box-j-dehesa").removeClass("btn-activo");
+      $(".btn-box-j-reina").removeClass("btn-activo");
+      $(".btn-box-j-castillo").removeClass("btn-activo");
+      $(".btn-box-j-trapenses").removeClass("btn-activo");
+      $(".btn-box-j-dominicos").removeClass("btn-activo");
+      $(".btn-box-j-bilbao").removeClass("btn-activo");
+      $(".btn-box-j-chicureo").removeClass("btn-activo");
+      $(".btn-box-j-maipu").removeClass("btn-activo");
+      $(".btn-box-j-florida").removeClass("btn-activo");
+      $(".btn-box-j-llano").removeClass("btn-activo");
+      $(".btn-box-j-penalolen").removeClass("btn-activo");
+      $(".btn-box-j-puente").removeClass("btn-activo");
+      $(".btn-box-j-pajaritos").removeClass("btn-activo");
+      $(".btn-box-j-nunoa").removeClass("btn-activo");
+      $(".btn-box-j-concha").removeClass("btn-activo");
+      $(".box-j-kennedy").addClass("esconder");
+      $(".box-j-costanera").addClass("esconder");
+      $(".box-j-dehesa").addClass("esconder");
+      $(".box-j-reina").addClass("esconder");
+      $(".box-j-castillo").addClass("esconder");
+      $(".box-j-trapenses").addClass("esconder");
+      $(".box-j-dominicos").addClass("esconder");
+      $(".box-j-bilbao").addClass("esconder");
+      $(".box-j-chicureo").addClass("esconder");
+      $(".box-j-maipu").addClass("esconder");
+      $(".box-j-florida").addClass("esconder");
+      $(".box-j-llano").addClass("esconder");
+      $(".box-j-penalolen").addClass("esconder");
+      $(".box-j-puente").addClass("esconder");
+      $(".box-j-pajaritos").addClass("esconder");
+      $(".box-j-nunoa").addClass("esconder");
+      $(".box-j-concha").addClass("esconder");
+    });
+    $(".btn-box-u-militares").click(function(){
+      $(".box-u-militares").addClass("mostrar");      
+      $(".box-u-militares").removeClass("esconder");
+      $(".btn-box-u-militares").addClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-santamaria").click(function(){
+      $(".box-u-santamaria").addClass("mostrar");      
+      $(".box-u-santamaria").removeClass("esconder");
+      $(".btn-box-u-santamaria").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-trapenses").click(function(){
+      $(".box-u-trapenses").addClass("mostrar");      
+      $(".box-u-trapenses").removeClass("esconder");
+      $(".btn-box-u-trapenses").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-tranqueras").click(function(){
+      $(".box-u-tranqueras").addClass("mostrar");      
+      $(".box-u-tranqueras").removeClass("esconder");
+      $(".btn-box-u-tranqueras").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-manquehue").click(function(){
+      $(".box-u-manquehue").addClass("mostrar");      
+      $(".box-u-manquehue").removeClass("esconder");
+      $(".btn-box-u-manquehue").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-escuela").click(function(){
+      $(".box-u-escuela").addClass("mostrar");      
+      $(".box-u-escuela").removeClass("esconder");
+      $(".btn-box-u-escuela").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-gales").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-gales").addClass("esconder");
+    });
+    $(".btn-box-u-gales").click(function(){
+      $(".box-u-gales").addClass("mostrar");      
+      $(".box-u-gales").removeClass("esconder");
+      $(".btn-box-u-gales").addClass("btn-activo");
+      $(".btn-box-u-militares").removeClass("btn-activo");
+      $(".btn-box-u-santamaria").removeClass("btn-activo");
+      $(".btn-box-u-trapenses").removeClass("btn-activo");
+      $(".btn-box-u-tranqueras").removeClass("btn-activo");
+      $(".btn-box-u-manquehue").removeClass("btn-activo");
+      $(".btn-box-u-escuela").removeClass("btn-activo");
+      $(".box-u-militares").addClass("esconder");
+      $(".box-u-santamaria").addClass("esconder");
+      $(".box-u-trapenses").addClass("esconder");
+      $(".box-u-tranqueras").addClass("esconder");
+      $(".box-u-manquehue").addClass("esconder");
+      $(".box-u-escuela").addClass("esconder");
+    });
+  ;});
+      </script>  
+  </body>
+</html>
